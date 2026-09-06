@@ -11,10 +11,16 @@ from urllib.parse import urlparse
 
 from playwright.async_api import async_playwright
 
-FFF_URL = "https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier"
-TEAM_NEEDLE = "saverne"
-OUT_ICS = Path("docs/fc-saverne-s1.ics")
-OUT_JSON = Path("docs/matches.json")
+FFF_URL = os.environ.get(
+    "FFF_URL",
+    "https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier",
+)
+TEAM_NEEDLE = os.environ.get("TEAM_NEEDLE", "saverne").lower()
+CALENDAR_NAME = os.environ.get("CALENDAR_NAME", "FC Saverne S1")
+CALENDAR_SLUG = os.environ.get("CALENDAR_SLUG", "fc-saverne-s1")
+OUT_ICS = Path(os.environ.get("OUT_ICS", "docs/fc-saverne-s1.ics"))
+OUT_JSON = Path(os.environ.get("OUT_JSON", "docs/matches.json"))
+MIN_MATCHES = int(os.environ.get("MIN_MATCHES", "10"))
 DEBUG_DIR = Path("debug")
 TZID = "Europe/Paris"
 
@@ -156,7 +162,7 @@ def extract_match(obj):
         "away": away,
         "home_score": hs,
         "away_score": aws,
-        "competition": comp or "Compétition FFF",
+        "competition": comp or "CompÃ©tition FFF",
         "round": rnd,
         "status": status,
         "venue": venue,
@@ -174,9 +180,9 @@ def walk_json(value, found):
             walk_json(v, found)
 
 MONTHS_FR = {
-    "JAN": 1, "FÉV": 2, "FEV": 2, "MAR": 3, "AVR": 4,
-    "MAI": 5, "JUN": 6, "JUIL": 7, "AOÛT": 8, "AOUT": 8,
-    "SEP": 9, "OCT": 10, "NOV": 11, "DÉC": 12, "DEC": 12,
+    "JAN": 1, "FÃV": 2, "FEV": 2, "MAR": 3, "AVR": 4,
+    "MAI": 5, "JUN": 6, "JUIL": 7, "AOÃT": 8, "AOUT": 8,
+    "SEP": 9, "OCT": 10, "NOV": 11, "DÃC": 12, "DEC": 12,
 }
 
 def extract_matches_from_text(text):
@@ -184,7 +190,7 @@ def extract_matches_from_text(text):
     lines = [norm(line) for line in text.splitlines() if norm(line)]
     date_re = re.compile(
         r"^(?:LUN|MAR|MER|JEU|VEN|SAM|DIM) (\d{2}) "
-        r"(JAN|FÉV|FEV|MAR|AVR|MAI|JUN|JUIL|AOÛT|AOUT|SEP|OCT|NOV|DÉC|DEC) "
+        r"(JAN|FÃV|FEV|MAR|AVR|MAI|JUN|JUIL|AOÃT|AOUT|SEP|OCT|NOV|DÃC|DEC) "
         r"(20\d{2}) - (\d{1,2})H(\d{2})$", re.I)
     date_indexes = [i for i, line in enumerate(lines) if date_re.match(line)]
     found = []
@@ -315,7 +321,7 @@ def make_ics(matches):
         "PRODID:-//FC Saverne//Calendrier FFF automatique//FR",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        "X-WR-CALNAME:FC Saverne S1",
+        f"X-WR-CALNAME:{CALENDAR_NAME}",
         "X-WR-TIMEZONE:Europe/Paris",
         "REFRESH-INTERVAL;VALUE=DURATION:PT1H",
         "X-PUBLISHED-TTL:PT1H",
@@ -343,23 +349,23 @@ def make_ics(matches):
         end = start + timedelta(hours=2)
         result_known = m["home_score"] is not None and m["away_score"] is not None
         if result_known:
-            summary = f'{m["home"]} {m["home_score"]}–{m["away_score"]} {m["away"]}'
+            summary = f'{m["home"]} {m["home_score"]}â{m["away_score"]} {m["away"]}'
         else:
-            summary = f'{m["home"]} – {m["away"]}'
+            summary = f'{m["home"]} â {m["away"]}'
         desc_parts = [m["competition"]]
         if m["round"]:
             desc_parts.append(m["round"])
         if m["status"]:
             desc_parts.append(m["status"])
-        desc_parts += ["Mise à jour automatique depuis la FFF", FFF_URL]
+        desc_parts += ["Mise Ã  jour automatique depuis la FFF", FFF_URL]
         ev = [
             "BEGIN:VEVENT",
-            f'UID:{esc(m["uid_key"])}@fc-saverne-fff',
+            f'UID:{esc(m["uid_key"])}@{CALENDAR_SLUG}-fff',
             f"DTSTAMP:{now}",
             f"DTSTART;TZID={TZID}:{start.strftime('%Y%m%dT%H%M%S')}",
             f"DTEND;TZID={TZID}:{end.strftime('%Y%m%dT%H%M%S')}",
             f"SUMMARY:{esc(summary)}",
-            f"DESCRIPTION:{esc(' • '.join(desc_parts))}",
+            f"DESCRIPTION:{esc(' â¢ '.join(desc_parts))}",
             f"URL:{FFF_URL}",
             "STATUS:CONFIRMED",
             "TRANSP:OPAQUE",
@@ -451,12 +457,12 @@ async def main():
         except Exception:
             previous = []
 
-    if len(matches) < 10 and len(previous) >= 10:
+    if len(matches) < MIN_MATCHES and len(previous) >= MIN_MATCHES:
         print(f"Partial FFF view ({len(matches)} match(es)); merging with {len(previous)} existing matches.")
         matches = merge_partial(previous, matches)
 
     # Safety: never destroy a working subscribed calendar because FFF blocked one run.
-    if len(matches) < 10:
+    if len(matches) < MIN_MATCHES:
         print(f"FFF page text: {page_text[:2000]}", file=sys.stderr)
         print(f"FFF responses ({len(response_urls)}): {response_urls[-100:]}", file=sys.stderr)
         print(f"FFF JSON responses: {len(captured)}", file=sys.stderr)
