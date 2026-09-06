@@ -1,4 +1,4 @@
-name: Mise à jour calendrier FC Saverne
+name: Mise Ã  jour calendrier FC Saverne
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Récupérer le dépôt
+      - name: RÃ©cupÃ©rer le dÃ©pÃ´t
         uses: actions/checkout@v4
 
       - name: Installer Python
@@ -26,8 +26,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install playwright
 
-      - name: Lire la FFF et générer l'iCal
-        run: python update_calendar.py
+      - name: Lire la FFF et gÃ©nÃ©rer l'iCal
+        run: |
+          python update_calendar.py
+          FFF_URL="https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/2026_1975_SEM_2/resultat-calendrier" \
+          CALENDAR_NAME="FC Saverne S2" \
+          CALENDAR_SLUG="fc-saverne-s2" \
+          OUT_ICS="docs/fc-saverne-s2.ics" \
+          OUT_JSON="docs/matches-s2.json" \
+          MIN_MATCHES="1" \
+          python update_calendar.py
         env:
           ZENROWS_API_KEY: ${{ secrets.ZENROWS_API_KEY }}
 
@@ -35,10 +43,10 @@ jobs:
         run: |
           git config user.name "FC Saverne Calendar Bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs/fc-saverne-s1.ics docs/matches.json
+          git add docs/*.ics docs/*.json
           if git diff --cached --quiet; then
             echo "Aucun changement."
           else
-            git commit -m "Mise à jour calendrier FFF"
+            git commit -m "Mise Ã  jour calendrier FFF"
             git push
           fi
