@@ -259,6 +259,33 @@ def dedupe(matches):
             by[key] = m
     return sorted(by.values(), key=lambda x: (x["date"], x["time"], x["home"], x["away"]))
 
+def team_fingerprint(name):
+    words = re.findall(r"[a-z0-9]+", name.lower())
+    ignored = {"fc", "f", "c", "as", "us", "es", "s", "zorn"}
+    return " ".join(word for word in words if word not in ignored)
+
+def merge_partial(previous, fresh):
+    """Update visible matches without deleting the rest of the season."""
+    merged = [dict(match) for match in previous]
+    for incoming in fresh:
+        target = None
+        for existing in merged:
+            same_teams = (
+                team_fingerprint(existing["home"]) == team_fingerprint(incoming["home"])
+                and team_fingerprint(existing["away"]) == team_fingerprint(incoming["away"])
+            )
+            same_day = existing["date"] == incoming["date"]
+            if existing["uid_key"] == incoming["uid_key"] or same_teams or same_day:
+                target = existing
+                break
+        if target is None:
+            merged.append(incoming)
+            continue
+        for key in ("date", "time", "home_score", "away_score", "competition", "round", "status", "venue"):
+            if incoming.get(key) not in (None, ""):
+                target[key] = incoming[key]
+    return dedupe(merged)
+
 def esc(s):
     return (str(s).replace("\\", "\\\\")
             .replace("\n", "\\n")
@@ -417,8 +444,19 @@ async def main():
     found.extend(extract_matches_from_text(page_text))
     matches = dedupe(found)
 
+    previous = []
+    if OUT_JSON.exists():
+        try:
+            previous = json.loads(OUT_JSON.read_text(encoding="utf-8"))
+        except Exception:
+            previous = []
+
+    if len(matches) < 10 and len(previous) >= 10:
+        print(f"Partial FFF view ({len(matches)} match(es)); merging with {len(previous)} existing matches.")
+        matches = merge_partial(previous, matches)
+
     # Safety: never destroy a working subscribed calendar because FFF blocked one run.
-    if len(matches) < 3:
+    if len(matches) < 10:
         print(f"FFF page text: {page_text[:2000]}", file=sys.stderr)
         print(f"FFF responses ({len(response_urls)}): {response_urls[-100:]}", file=sys.stderr)
         print(f"FFF JSON responses: {len(captured)}", file=sys.stderr)
