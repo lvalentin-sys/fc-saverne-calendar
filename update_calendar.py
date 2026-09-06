@@ -299,9 +299,9 @@ async def main():
 
         async def on_response(resp):
             try:
+                response_urls.append(f"{resp.status} {resp.url}")
                 ctype = (resp.headers.get("content-type") or "").lower()
                 if "json" in ctype:
-                    response_urls.append(resp.url)
                     data = await resp.json()
                     captured.append(data)
             except Exception:
@@ -340,7 +340,7 @@ async def main():
     # Safety: never destroy a working subscribed calendar because FFF blocked one run.
     if len(matches) < 3:
         print(f"FFF page text: {page_text[:2000]}", file=sys.stderr)
-        print(f"FFF responses ({len(response_urls)}): {response_urls[-20:]}", file=sys.stderr)
+        print(f"FFF responses ({len(response_urls)}): {response_urls[-100:]}", file=sys.stderr)
         print(f"FFF JSON responses: {len(captured)}", file=sys.stderr)
         print(f"FFF extraction incomplete ({len(matches)} match(es)). Previous calendar kept.", file=sys.stderr)
         sys.exit(2)
