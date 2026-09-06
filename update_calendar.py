@@ -280,6 +280,7 @@ async def main():
     DEBUG_DIR.mkdir(exist_ok=True)
     captured = []
     response_urls = []
+    page_text = ""
 
     api_key = os.environ.get("ZENROWS_API_KEY")
     if not api_key:
@@ -320,7 +321,8 @@ async def main():
             await page.wait_for_timeout(4000)
 
             (DEBUG_DIR / "page.html").write_text(await page.content(), encoding="utf-8")
-            (DEBUG_DIR / "page.txt").write_text(await page.locator("body").inner_text(), encoding="utf-8")
+            page_text = await page.locator("body").inner_text()
+            (DEBUG_DIR / "page.txt").write_text(page_text, encoding="utf-8")
             (DEBUG_DIR / "responses.txt").write_text("\n".join(response_urls), encoding="utf-8")
         finally:
             await browser.close()
@@ -332,6 +334,9 @@ async def main():
 
     # Safety: never destroy a working subscribed calendar because FFF blocked one run.
     if len(matches) < 3:
+        print(f"FFF page text: {page_text[:2000]}", file=sys.stderr)
+        print(f"FFF responses ({len(response_urls)}): {response_urls[-20:]}", file=sys.stderr)
+        print(f"FFF JSON responses: {len(captured)}", file=sys.stderr)
         print(f"FFF extraction incomplete ({len(matches)} match(es)). Previous calendar kept.", file=sys.stderr)
         sys.exit(2)
 
