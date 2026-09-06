@@ -424,16 +424,34 @@ async def main():
                     break
             await page.wait_for_timeout(6000)
 
-            # Read every month displayed by the FFF carousel.
+            # Read every month displayed by the FFF carousel. The FFF changes
+            # the navigation markup regularly, so try text and attributes.
             page_texts = []
+            seen_pages = set()
             for _ in range(12):
-                page_texts.append(await page.locator("body").inner_text())
-                next_button = page.get_by_alt_text("navigation suivante")
+                current_text = await page.locator("body").inner_text()
+                page_key = hashlib.sha1(current_text.encode("utf-8")).hexdigest()
+                if page_key in seen_pages:
+                    break
+                seen_pages.add(page_key)
+                page_texts.append(current_text)
+
+                next_button = page.get_by_text(re.compile(r"navigation suivante", re.I))
                 if not await next_button.count():
+                    next_button = page.locator(
+                        '[aria-label*="suivante" i], [title*="suivante" i], '
+                        'button:has(img[alt*="suivante" i]), '
+                        'a:has(img[alt*="suivante" i]), img[alt*="suivante" i]'
+                    )
+                visible_buttons = []
+                for candidate in await next_button.all():
+                    if await candidate.is_visible():
+                        visible_buttons.append(candidate)
+                if not visible_buttons:
                     break
                 try:
-                    await next_button.first.click()
-                    await page.wait_for_timeout(1500)
+                    await visible_buttons[-1].click()
+                    await page.wait_for_timeout(1800)
                 except Exception:
                     break
 
