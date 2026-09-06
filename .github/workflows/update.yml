@@ -36,6 +36,13 @@ jobs:
           OUT_JSON="docs/matches-s2.json" \
           MIN_MATCHES="1" \
           python update_calendar.py
+          FFF_URL="https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/2026_1975_SEM_3/resultat-calendrier" \
+          CALENDAR_NAME="FC Saverne S3" \
+          CALENDAR_SLUG="fc-saverne-s3" \
+          OUT_ICS="docs/fc-saverne-s3.ics" \
+          OUT_JSON="docs/matches-s3.json" \
+          MIN_MATCHES="1" \
+          python update_calendar.py
         env:
           ZENROWS_API_KEY: ${{ secrets.ZENROWS_API_KEY }}
 
