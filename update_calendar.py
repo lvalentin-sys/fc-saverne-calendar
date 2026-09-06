@@ -5,6 +5,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -39,7 +40,7 @@ TERRAIN_KEYS = ("terrain", "venue", "stade")
 def norm(s):
     if s is None:
         return ""
-    return re.sub(r"\s+", " ", str(s)).strip()
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFC", str(s))).strip()
 
 def team_name(value):
     if isinstance(value, str):
