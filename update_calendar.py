@@ -181,7 +181,7 @@ def walk_json(value, found):
 
 MONTHS_FR = {
     "JAN": 1, "FÃV": 2, "FEV": 2, "MAR": 3, "AVR": 4,
-    "MAI": 5, "JUN": 6, "JUIL": 7, "AOÃT": 8, "AOUT": 8,
+    "MAI": 5, "JUN": 6, "JUIL": 7, "AOÃ": 8, "AOÃT": 8, "AOU": 8, "AOUT": 8,
     "SEP": 9, "OCT": 10, "NOV": 11, "DÃC": 12, "DEC": 12,
 }
 
@@ -190,7 +190,7 @@ def extract_matches_from_text(text):
     lines = [norm(line) for line in text.splitlines() if norm(line)]
     date_re = re.compile(
         r"^(?:LUN|MAR|MER|JEU|VEN|SAM|DIM) (\d{2}) "
-        r"(JAN|FÃV|FEV|MAR|AVR|MAI|JUN|JUIL|AOÃT|AOUT|SEP|OCT|NOV|DÃC|DEC) "
+        r"(JAN|FÃV|FEV|MAR|AVR|MAI|JUN|JUIL|AOÃ|AOÃT|AOU|AOUT|SEP|OCT|NOV|DÃC|DEC) "
         r"(20\d{2}) - (\d{1,2})H(\d{2})$", re.I)
     date_indexes = [i for i, line in enumerate(lines) if date_re.match(line)]
     found = []
