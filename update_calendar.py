@@ -281,20 +281,19 @@ async def main():
     captured = []
     response_urls = []
 
+    api_key = os.environ.get("ZENROWS_API_KEY")
+    if not api_key:
+        print("ZENROWS_API_KEY is missing.", file=sys.stderr)
+        sys.exit(2)
+
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(
-            locale="fr-FR",
-            timezone_id="Europe/Paris",
-            viewport={"width": 1440, "height": 1200},
-            user_agent=("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                        "Chrome/128.0.0.0 Safari/537.36"),
-            extra_http_headers={
-                "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
-                "DNT": "1",
-            },
-        )
+        connection_url = f"wss://browser.zenrows.com?apikey={api_key}"
+        browser = await p.chromium.connect_over_cdp(connection_url)
+        context = browser.contexts[0] if browser.contexts else await browser.new_context()
+        await context.set_extra_http_headers({
+            "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+            "DNT": "1",
+        })
         page = await context.new_page()
 
         async def on_response(resp):
