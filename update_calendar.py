@@ -173,6 +173,77 @@ def walk_json(value, found):
         for v in value:
             walk_json(v, found)
 
+MONTHS_FR = {
+    "JAN": 1, "FÉV": 2, "FEV": 2, "MAR": 3, "AVR": 4,
+    "MAI": 5, "JUN": 6, "JUIL": 7, "AOÛT": 8, "AOUT": 8,
+    "SEP": 9, "OCT": 10, "NOV": 11, "DÉC": 12, "DEC": 12,
+}
+
+def extract_matches_from_text(text):
+    """Fallback for the rendered FFF page when its API bodies are opaque."""
+    lines = [norm(line) for line in text.splitlines() if norm(line)]
+    date_re = re.compile(
+        r"^(?:LUN|MAR|MER|JEU|VEN|SAM|DIM) (\d{2}) "
+        r"(JAN|FÉV|FEV|MAR|AVR|MAI|JUN|JUIL|AOÛT|AOUT|SEP|OCT|NOV|DÉC|DEC) "
+        r"(20\d{2}) - (\d{1,2})H(\d{2})$", re.I)
+    date_indexes = [i for i, line in enumerate(lines) if date_re.match(line)]
+    found = []
+
+    for pos, start_idx in enumerate(date_indexes):
+        end_idx = date_indexes[pos + 1] if pos + 1 < len(date_indexes) else len(lines)
+        block = lines[start_idx:end_idx]
+        m = date_re.match(block[0])
+        if not m or len(block) < 4:
+            continue
+
+        day, month_name, year, hour, minute = m.groups()
+        month = MONTHS_FR[month_name.upper()]
+        date = f"{year}-{month:02d}-{int(day):02d}"
+        time = f"{int(hour):02d}:{minute}"
+        comp_line = block[1]
+
+        items = []
+        for item in block[2:]:
+            low = item.lower()
+            if low == "ajouter au favoris" or low.startswith("navigation "):
+                break
+            items.append(item)
+
+        teams = [item for item in items
+                 if not re.fullmatch(r"\d+", item)
+                 and not re.fullmatch(r"\d{1,2}:\d{2}", item)]
+        if len(teams) < 2:
+            continue
+        home, away = teams[0], teams[-1]
+        if TEAM_NEEDLE not in home.lower() and TEAM_NEEDLE not in away.lower():
+            continue
+
+        scores = [int(item) for item in items if re.fullmatch(r"\d+", item)]
+        home_score = scores[0] if len(scores) >= 2 else None
+        away_score = scores[1] if len(scores) >= 2 else None
+        if " - " in comp_line:
+            competition, rnd = comp_line.split(" - ", 1)
+        else:
+            competition, rnd = comp_line, ""
+
+        stable_src = "|".join([home.lower(), away.lower(), competition.lower(), rnd.lower()])
+        found.append({
+            "uid_key": hashlib.sha1(stable_src.encode("utf-8")).hexdigest()[:20],
+            "fff_id": None,
+            "date": date,
+            "time": time,
+            "home": home,
+            "away": away,
+            "home_score": home_score,
+            "away_score": away_score,
+            "competition": competition,
+            "round": rnd,
+            "status": "",
+            "venue": "",
+            "source": FFF_URL,
+        })
+    return found
+
 def dedupe(matches):
     by = {}
     for m in matches:
@@ -318,15 +389,23 @@ async def main():
                     await button.first.click()
                     await page.wait_for_timeout(3000)
                     break
-            await page.wait_for_timeout(9000)
-            # Scroll to trigger lazy-loaded competitions/results.
-            for _ in range(5):
-                await page.mouse.wheel(0, 1600)
-                await page.wait_for_timeout(900)
-            await page.wait_for_timeout(4000)
+            await page.wait_for_timeout(6000)
+
+            # Read every month displayed by the FFF carousel.
+            page_texts = []
+            for _ in range(12):
+                page_texts.append(await page.locator("body").inner_text())
+                next_button = page.get_by_alt_text("navigation suivante")
+                if not await next_button.count():
+                    break
+                try:
+                    await next_button.first.click()
+                    await page.wait_for_timeout(1500)
+                except Exception:
+                    break
 
             (DEBUG_DIR / "page.html").write_text(await page.content(), encoding="utf-8")
-            page_text = await page.locator("body").inner_text()
+            page_text = "\n".join(page_texts)
             (DEBUG_DIR / "page.txt").write_text(page_text, encoding="utf-8")
             (DEBUG_DIR / "responses.txt").write_text("\n".join(response_urls), encoding="utf-8")
         finally:
@@ -335,6 +414,7 @@ async def main():
     found = []
     for payload in captured:
         walk_json(payload, found)
+    found.extend(extract_matches_from_text(page_text))
     matches = dedupe(found)
 
     # Safety: never destroy a working subscribed calendar because FFF blocked one run.
