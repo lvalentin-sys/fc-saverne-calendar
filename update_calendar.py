@@ -191,7 +191,7 @@ def extract_matches_from_text(text):
     lines = [norm(line) for line in text.splitlines() if norm(line)]
     date_re = re.compile(
         r"^(?:LUN|MAR|MER|JEU|VEN|SAM|DIM) (\d{2}) "
-        r"(JAN|FÃV|FEV|MAR|AVR|MAI|JUN|JUIL|AOÃ|AOÃT|AOU|AOUT|SEP|OCT|NOV|DÃC|DEC) "
+        r"(JAN|FÃV|FEV|MAR|AVR|MAI|JUN|JUIL|AO\S*|SEP|OCT|NOV|DÃC|DEC) "
         r"(20\d{2}) - (\d{1,2})H(\d{2})$", re.I)
     date_indexes = [i for i, line in enumerate(lines) if date_re.match(line)]
     found = []
@@ -204,7 +204,11 @@ def extract_matches_from_text(text):
             continue
 
         day, month_name, year, hour, minute = m.groups()
-        month = MONTHS_FR[month_name.upper()]
+        month_key = "".join(
+            char for char in unicodedata.normalize("NFD", month_name.upper())
+            if not unicodedata.combining(char)
+        )
+        month = 8 if month_key.startswith("AOU") else MONTHS_FR[month_name.upper()]
         date = f"{year}-{month:02d}-{int(day):02d}"
         time = f"{int(hour):02d}:{minute}"
         comp_line = block[1]
