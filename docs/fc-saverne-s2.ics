@@ -1,0 +1,71 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//FC Saverne//Calendrier FFF automatique//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FC Saverne S2
+X-WR-TIMEZONE:Europe/Paris
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:Europe/Paris
+X-LIC-LOCATION:Europe/Paris
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:91ba3a19ede65a9e7df6@fc-saverne-s2-fff
+DTSTAMP:20260906T190552Z
+DTSTART;TZID=Europe/Paris:20260906T160000
+DTEND;TZID=Europe/Paris:20260906T180000
+SUMMARY:SAVERNE F.C 2 7â0 ERNOLSHEIM SAV F.C
+DESCRIPTION:District 4 Alsace â¢ Senior Journée 2 â¢ Mise Ã  j
+ our automatique depuis la FFF â¢ https://epreuves.fff.fr/competition
+ /club/503964-f-c-saverne/equipe/2026_1975_SEM_2/resultat-calendrier
+URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
+ 26_1975_SEM_2/resultat-calendrier
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:0146c39746fc56997e8f@fc-saverne-s2-fff
+DTSTAMP:20260906T190552Z
+DTSTART;TZID=Europe/Paris:20260913T100000
+DTEND;TZID=Europe/Paris:20260913T120000
+SUMMARY:WITTERSHEIM U.S 2 â SAVERNE F.C 2
+DESCRIPTION:Coupe des Réserves Alsace Vivialys â¢ Senior 2e Tour â
+ ¢ Mise Ã  jour automatique depuis la FFF â¢ https://epreuves.ff
+ f.fr/competition/club/503964-f-c-saverne/equipe/2026_1975_SEM_2/resultat
+ -calendrier
+URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
+ 26_1975_SEM_2/resultat-calendrier
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:776b306c3b651b5cfe24@fc-saverne-s2-fff
+DTSTAMP:20260906T190552Z
+DTSTART;TZID=Europe/Paris:20260920T160000
+DTEND;TZID=Europe/Paris:20260920T180000
+SUMMARY:SAVERNE F.C 2 â BROTSCH A.S.C
+DESCRIPTION:District 4 Alsace â¢ Senior Journée 3 â¢ Mise Ã  j
+ our automatique depuis la FFF â¢ https://epreuves.fff.fr/competition
+ /club/503964-f-c-saverne/equipe/2026_1975_SEM_2/resultat-calendrier
+URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
+ 26_1975_SEM_2/resultat-calendrier
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

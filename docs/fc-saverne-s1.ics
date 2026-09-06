@@ -26,27 +26,42 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:49fe6825042560fd9c32@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:49fe6825042560fd9c32@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20260823T160000
 DTEND;TZID=Europe/Paris:20260823T180000
-SUMMARY:Obermodern FC 0–2 FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J1 • Mise à jour automatique d
- epuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sav
- erne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Obermodern FC 0â2 FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J1 â¢ Mise Ã  jour autom
+ atique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/503
+ 964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:e1bc5d943d947b0f7ba4@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:e1bc5d943d947b0f7ba4@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20260830T160000
 DTEND;TZID=Europe/Paris:20260830T180000
-SUMMARY:Romanswiller ES 1–4 FC Saverne
-DESCRIPTION:Coupe de France Crédit Agricole • 2e tour • Mise à jour
-  automatique depuis la FFF • https://epreuves.fff.fr/competition/club/
+SUMMARY:Romanswiller ES 1â4 FC Saverne
+DESCRIPTION:Coupe de France Crédit Agricole â¢ 2e tour â¢ Mise 
+ Ã  jour automatique depuis la FFF â¢ https://epreuves.fff.fr/compe
+ tition/club/503964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrie
+ r
+URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
+ 26_1975_SEM_1/resultat-calendrier
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:b0c810b8abf6ee999174@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
+DTSTART;TZID=Europe/Paris:20260905T174500
+DTEND;TZID=Europe/Paris:20260905T194500
+SUMMARY:FC Saverne 2â0 Scheibenhard FC
+DESCRIPTION:RÉGIONAL 2 â¢ Senior Journée 2 â¢ Mise Ã  jour au
+ tomatique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/
  503964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
@@ -54,308 +69,295 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:b0c810b8abf6ee999174@fc-saverne-fff
-DTSTAMP:20260906T182806Z
-DTSTART;TZID=Europe/Paris:20260905T174500
-DTEND;TZID=Europe/Paris:20260905T194500
-SUMMARY:FC Saverne 2–0 Scheibenhard FC
-DESCRIPTION:RÉGIONAL 2 • Senior Journée 2 • Mise à jour automatiqu
- e depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-
- saverne/equipe/2026_1975_SEM_1/resultat-calendrier
-URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
- 26_1975_SEM_1/resultat-calendrier
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:1fc89b792bf7f7061e87@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:1fc89b792bf7f7061e87@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20260913T150000
 DTEND;TZID=Europe/Paris:20260913T170000
-SUMMARY:FC Schaffhouse S/Zorn – FC Saverne
-DESCRIPTION:COUPE DE FRANCE CRÉDIT AGRICOLE • Senior 3E TOUR • Mise 
- à jour automatique depuis la FFF • https://epreuves.fff.fr/competitio
- n/club/503964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Schaffhouse S/Zorn â FC Saverne
+DESCRIPTION:COUPE DE FRANCE CRÉDIT AGRICOLE â¢ Senior 3E TOUR â¢
+  Mise Ã  jour automatique depuis la FFF â¢ https://epreuves.fff.fr
+ /competition/club/503964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-cal
+ endrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:6ebe0f80010bc14b95e1@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:6ebe0f80010bc14b95e1@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20260919T183000
 DTEND;TZID=Europe/Paris:20260919T203000
-SUMMARY:St Etienne Seltz FC – FC Saverne
-DESCRIPTION:RÉGIONAL 2 • Senior Journée 3 • Mise à jour automatiqu
- e depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-
- saverne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:St Etienne Seltz FC â FC Saverne
+DESCRIPTION:RÉGIONAL 2 â¢ Senior Journée 3 â¢ Mise Ã  jour au
+ tomatique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/
+ 503964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:62449e94b4f7d0472fa8@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:62449e94b4f7d0472fa8@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261003T174500
 DTEND;TZID=Europe/Paris:20261003T194500
-SUMMARY:FC Saverne – Freyming FC
-DESCRIPTION:Régional 2 – Poule E • J4 • Mise à jour automatique d
- epuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sav
- erne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Freyming FC
+DESCRIPTION:Régional 2 – Poule E â¢ J4 â¢ Mise Ã  jour autom
+ atique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/503
+ 964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:263ec16ecff369ffe98c@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:263ec16ecff369ffe98c@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261017T190000
 DTEND;TZID=Europe/Paris:20261017T210000
-SUMMARY:Reding AS – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J5 • Mise à jour automatique d
- epuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sav
- erne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Reding AS â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J5 â¢ Mise Ã  jour autom
+ atique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/503
+ 964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:02f672e1eebfe469b2b0@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:02f672e1eebfe469b2b0@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261024T174500
 DTEND;TZID=Europe/Paris:20261024T194500
-SUMMARY:FC Saverne – Ohlungen AS
-DESCRIPTION:Régional 2 – Poule E • J6 • Mise à jour automatique d
- epuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sav
- erne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Ohlungen AS
+DESCRIPTION:Régional 2 – Poule E â¢ J6 â¢ Mise Ã  jour autom
+ atique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/503
+ 964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:6f737bca9aa2780f3e37@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:6f737bca9aa2780f3e37@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261101T143000
 DTEND;TZID=Europe/Paris:20261101T163000
-SUMMARY:Achen Etting Schmitt – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J7 • Mise à jour automatique d
- epuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sav
- erne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Achen Etting Schmitt â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J7 â¢ Mise Ã  jour autom
+ atique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/503
+ 964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:f4c670aec062c42584da@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:f4c670aec062c42584da@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261108T143000
 DTEND;TZID=Europe/Paris:20261108T163000
-SUMMARY:Schleithal US – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J8 • Mise à jour automatique d
- epuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sav
- erne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Schleithal US â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J8 â¢ Mise Ã  jour autom
+ atique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/503
+ 964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:949b990a090d42ae10aa@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:949b990a090d42ae10aa@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261114T174500
 DTEND;TZID=Europe/Paris:20261114T194500
-SUMMARY:FC Saverne – Sarre Union US 2
-DESCRIPTION:Régional 2 – Poule E • J9 • Mise à jour automatique d
- epuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sav
- erne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Sarre Union US 2
+DESCRIPTION:Régional 2 – Poule E â¢ J9 â¢ Mise Ã  jour autom
+ atique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/503
+ 964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:feeadb11fa0be2534691@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:feeadb11fa0be2534691@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261122T143000
 DTEND;TZID=Europe/Paris:20261122T163000
-SUMMARY:Oberlauterbach US – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J10 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Oberlauterbach US â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J10 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:036c11c994b2bf5b4275@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:036c11c994b2bf5b4275@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20261205T174500
 DTEND;TZID=Europe/Paris:20261205T194500
-SUMMARY:FC Saverne – Ingwiller AS
-DESCRIPTION:Régional 2 – Poule E • J11 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Ingwiller AS
+DESCRIPTION:Régional 2 – Poule E â¢ J11 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:8343542e666584de013e@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:8343542e666584de013e@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270220T183000
 DTEND;TZID=Europe/Paris:20270220T203000
-SUMMARY:Scheibenhard FC – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J12 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Scheibenhard FC â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J12 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:79abd44788d45b98c814@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:79abd44788d45b98c814@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270227T174500
 DTEND;TZID=Europe/Paris:20270227T194500
-SUMMARY:FC Saverne – St Etienne Seltz FC
-DESCRIPTION:Régional 2 – Poule E • J13 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â St Etienne Seltz FC
+DESCRIPTION:Régional 2 – Poule E â¢ J13 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:b4bdcf49fb62ef53897c@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:b4bdcf49fb62ef53897c@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270313T190000
 DTEND;TZID=Europe/Paris:20270313T210000
-SUMMARY:Freyming FC – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J14 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Freyming FC â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J14 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:62400d520dd7e9c23f5e@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:62400d520dd7e9c23f5e@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270320T174500
 DTEND;TZID=Europe/Paris:20270320T194500
-SUMMARY:FC Saverne – Reding AS
-DESCRIPTION:Régional 2 – Poule E • J15 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Reding AS
+DESCRIPTION:Régional 2 – Poule E â¢ J15 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:f16cf1a4a3345c4cf3de@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:f16cf1a4a3345c4cf3de@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270404T150000
 DTEND;TZID=Europe/Paris:20270404T170000
-SUMMARY:Ohlungen AS – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J16 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Ohlungen AS â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J16 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:59679a7202c3766b57ca@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:59679a7202c3766b57ca@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270410T174500
 DTEND;TZID=Europe/Paris:20270410T194500
-SUMMARY:FC Saverne – Achen Etting Schmitt
-DESCRIPTION:Régional 2 – Poule E • J17 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Achen Etting Schmitt
+DESCRIPTION:Régional 2 – Poule E â¢ J17 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:8f9cf7d2e096294e466b@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:8f9cf7d2e096294e466b@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270417T174500
 DTEND;TZID=Europe/Paris:20270417T194500
-SUMMARY:FC Saverne – Schleithal US
-DESCRIPTION:Régional 2 – Poule E • J18 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Schleithal US
+DESCRIPTION:Régional 2 – Poule E â¢ J18 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:1fdaa93840b35c406dd2@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:1fdaa93840b35c406dd2@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270502T150000
 DTEND;TZID=Europe/Paris:20270502T170000
-SUMMARY:Sarre Union US 2 – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J19 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Sarre Union US 2 â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J19 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:6d77356e2acebee654b3@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:6d77356e2acebee654b3@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270508T174500
 DTEND;TZID=Europe/Paris:20270508T194500
-SUMMARY:FC Saverne – Oberlauterbach US
-DESCRIPTION:Régional 2 – Poule E • J20 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Oberlauterbach US
+DESCRIPTION:Régional 2 – Poule E â¢ J20 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:03277d817124dbcc59dd@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:03277d817124dbcc59dd@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270522T183000
 DTEND;TZID=Europe/Paris:20270522T203000
-SUMMARY:Ingwiller AS – FC Saverne
-DESCRIPTION:Régional 2 – Poule E • J21 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:Ingwiller AS â FC Saverne
+DESCRIPTION:Régional 2 – Poule E â¢ J21 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:d6d332ff237090b2ff0d@fc-saverne-fff
-DTSTAMP:20260906T182806Z
+UID:d6d332ff237090b2ff0d@fc-saverne-s1-fff
+DTSTAMP:20260906T190539Z
 DTSTART;TZID=Europe/Paris:20270529T174500
 DTEND;TZID=Europe/Paris:20270529T194500
-SUMMARY:FC Saverne – Obermodern FC
-DESCRIPTION:Régional 2 – Poule E • J22 • Mise à jour automatique 
- depuis la FFF • https://epreuves.fff.fr/competition/club/503964-f-c-sa
- verne/equipe/2026_1975_SEM_1/resultat-calendrier
+SUMMARY:FC Saverne â Obermodern FC
+DESCRIPTION:Régional 2 – Poule E â¢ J22 â¢ Mise Ã  jour auto
+ matique depuis la FFF â¢ https://epreuves.fff.fr/competition/club/50
+ 3964-f-c-saverne/equipe/2026_1975_SEM_1/resultat-calendrier
 URL:https://epreuves.fff.fr/competition/club/503964-f-c-saverne/equipe/20
  26_1975_SEM_1/resultat-calendrier
 STATUS:CONFIRMED
