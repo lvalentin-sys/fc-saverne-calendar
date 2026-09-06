@@ -299,11 +299,9 @@ async def main():
 
         async def on_response(resp):
             try:
-                if "fff.fr" not in resp.url:
-                    return
-                response_urls.append(resp.url)
                 ctype = (resp.headers.get("content-type") or "").lower()
                 if "json" in ctype:
+                    response_urls.append(resp.url)
                     data = await resp.json()
                     captured.append(data)
             except Exception:
@@ -313,7 +311,14 @@ async def main():
 
         try:
             await page.goto(FFF_URL, wait_until="domcontentloaded", timeout=90000)
-            await page.wait_for_timeout(12000)
+            await page.wait_for_timeout(2500)
+            for label in ("Refuser", "Tout refuser", "Continuer sans accepter"):
+                button = page.get_by_text(label, exact=True)
+                if await button.count():
+                    await button.first.click()
+                    await page.wait_for_timeout(3000)
+                    break
+            await page.wait_for_timeout(9000)
             # Scroll to trigger lazy-loaded competitions/results.
             for _ in range(5):
                 await page.mouse.wheel(0, 1600)
